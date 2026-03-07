@@ -7,11 +7,29 @@
 
     <body>
             
-            <div>
+            <div class = "container">
                 <!-- header section -->
-             <h1> TO DO APP </h1>
-             <input type="text" placeholder="Enter Task">
-             <button>+</button>
-             </div>
+                <h1> TO DO APP </h1>
+                <div class = input-section>
+                    <input type="text" placeholder="Enter Task" id="taskinput">
+                    <button id="addtask">+</button>
+                </div>
+
+                <div class="filters">
+                    <button id="All">All</button>
+                    <button id="Completedtasks">Completed</button>
+                    <button id="Pendingtasks">Pending</button>
+                </div>
+
+                <ul id="tasklist">
+
+                </ul>
+
+                <div class="progress">
+                    <p id="task progress">0 / 0 tasks Completed</p>
+                </div>
+            </div>
+
+            <script src="js\script.js"></script>
     </body>
 </html>
