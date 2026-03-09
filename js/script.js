@@ -202,3 +202,9 @@ function setActiveButton(button){
     button.classList.add("active");
 
 }
+
+taskinput.addEventListener("keydown", function(event){
+    if(event.key === "Enter") {
+        addTask();
+    }
+});
