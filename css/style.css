@@ -103,6 +103,19 @@ h1{
     background: rgba(198, 0, 0, 0.856);
 }
 
+.completebtn{
+    background: green;
+    color: white;
+    border: none;
+    padding: 5px 8px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.deletebtn:hover{
+    background: rgba(0,198, 0, 0.856);
+}
+
 .progress{
     text-align: center;
     margin-top: 15px;
