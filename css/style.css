@@ -1,123 +1,199 @@
+/* =========================
+GLOBAL RESET
+========================= */
 *{
     margin:0;
     padding:0;
-    box-sizing: border-box;
+    box-sizing:border-box;
     font-family: Arial, Helvetica, sans-serif;
 }
 
+/* =========================
+PAGE BACKGROUND
+========================= */
 body{
     background: linear-gradient(135deg, #74edd5, #9face6);
     height:100vh;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    display:flex;
+    justify-content:center;
+    align-items:center;
 }
 
+/* =========================
+MAIN APP CONTAINER
+========================= */
 .container{
-    background: white;
-    width: 400px;
-    padding: 25px;
-    border-radius: 12px;
-    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+    background:white;
+    width:420px;
+    padding:25px;
+    border-radius:12px;
+    box-shadow:0 10px 25px rgba(0,0,0,0.1);
 }
 
+/* =========================
+TITLE
+========================= */
 h1{
-    text-align: center;
-    margin-bottom: 20px;
+    text-align:center;
+    margin-bottom:20px;
 }
 
+/* =========================
+INPUT SECTION
+========================= */
 .input-section{
-    display: flex;
-    gap: 10px;
-    margin-bottom: 15px;
+    display:flex;
+    gap:10px;
+    margin-bottom:15px;
 }
 
 #taskinput{
-    flex: 1;
-    padding: 10px;
-    border: 1px solid #ccc;
-    border-radius: 6px;
+    flex:1;
+    padding:10px;
+    border:1px solid #ccc;
+    border-radius:6px;
 }
 
+/* ADD BUTTON */
 #addtask{
-    padding: 5px 10px;
-    background: #4CAF50;
-    color: white;
-    border: none;
-    border-radius: 6px;
+    padding:5px 12px;
+    background:#4CAF50;
+    color:white;
+    border:none;
+    border-radius:6px;
     cursor:pointer;
-    font-size: 20px;
+    font-size:18px;
+    transition: transform 1s ease;
+}
+
+#addtask:active{
+    transform: rotate(360deg);
 }
 
 #addtask:hover{
-    background: #45a049;
+    background:#45a049;
 }
 
+/* =========================
+FILTER BUTTONS
+========================= */
 .filters{
-    display: flex;
-    justify-content: space-between;
-    margin-bottom: 15px;
+    display:flex;
+    justify-content:space-between;
+    margin-bottom:15px;
 }
 
+/* Default filter style */
 .filters button{
-    padding: 6px 10px;
-    border: none;
-    border-radius: 6px;
-    background: #dbdbdb;
-    cursor: pointer;
+    padding:6px 12px;
+    border:none;
+    border-radius:6px;
+    background:#dbdbdb;
+    cursor:pointer;
+    transition:0.2s;
+}
+/* Active filter buttons */
+
+.filters button.active{
+    background:#4CAF50;
+    color:white;
+    font-weight:bold;
+    box-shadow:0 3px 8px rgba(0,0,0,0.15);
+    transform: translateY(-4px);
 }
 
+/* Hover */
 .filters button:hover{
-    background: #d6d6d6c5;
+    transform: translateY(-2px);
 }
 
+/* =========================
+TASK LIST
+========================= */
 #tasklist{
-    list-style: none;
+    list-style:none;
 }
 
+/* Each task */
 #tasklist li{
-    background: #f5f5f5;
-    padding: 10px;
-    margin-bottom: 10px;    
-    border-radius: 6px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
+    background:#f5f5f5;
+    padding:10px;
+    margin-bottom:10px;
+    border-radius:6px;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    gap:8px;
 }
 
-.completed span{
-    text-decoration: line-through;
-    opacity: 0.6;
+/* Completed task style */
+.completed{
+    text-decoration:line-through;
+    opacity:0.6;
 }
 
+/* =========================
+DELETE BUTTON
+========================= */
 .deletebtn{
-    background: red;
-    color: white;
-    border: none;
-    padding: 5px 8px;
-    border-radius: 5px;
-    cursor: pointer;
+    background:red;
+    color:white;
+    border:none;
+    padding:5px 10px;
+    border-radius:5px;
+    cursor:pointer;
 }
 
 .deletebtn:hover{
-    background: rgba(198, 0, 0, 0.856);
+    background:#c60000;
 }
 
+/* =========================
+COMPLETE BUTTON
+========================= */
 .completebtn{
-    background: green;
-    color: white;
-    border: none;
-    padding: 5px 8px;
-    border-radius: 5px;
-    cursor: pointer;
+    background:#2e9d45;
+    color:white;
+    border:none;
+    padding:5px 10px;
+    border-radius:5px;
+    cursor:pointer;
 }
 
-.deletebtn:hover{
-    background: rgba(0,198, 0, 0.856);
+.completebtn:hover{
+    background:#1e7f34;
 }
 
+/* Disabled complete button */
+.completebtn:disabled{
+    background:gray;
+    cursor:not-allowed;
+}
+
+/* =========================
+PROGRESS TEXT
+========================= */
 .progress{
-    text-align: center;
-    margin-top: 15px;
-    font-size: 14px;
+    text-align:center;
+    margin-top:15px;
+    font-size:14px;
+    color:#555;
 }
+
+/* Progress bar */
+.progressbar{
+    width:100%;
+    height:10px;
+    background:#ddd;
+    border-radius:10px;
+    margin-top:8px;
+    overflow:hidden;
+}
+
+#progressfill{
+    height:100%;
+    width:0%;
+    background:#4CAF50;
+    transition: width 0.3s ease;
+}
+

@@ -10,6 +10,8 @@ const All = document.getElementById("All");
 const Completedtasks = document.getElementById("Completedtasks");
 const Pendingtasks = document.getElementById("Pendingtasks");
 
+const progresstext = document.getElementById("progresstext")
+
 // Current filter state
 let currentfilter = "All";
 
@@ -19,16 +21,19 @@ addtask.addEventListener("click", addTask);
 // Filter buttons
 All.addEventListener("click", function () {
     currentfilter = "All";
+    setActiveButton(this);
     rendertask();
 });
 
 Completedtasks.addEventListener("click", function () {
     currentfilter = "Completed";
+    setActiveButton(this);
     rendertask();
 });
 
 Pendingtasks.addEventListener("click", function () {
     currentfilter = "Pending";
+    setActiveButton(this);
     rendertask();
 });
 
@@ -75,6 +80,14 @@ function createTaskElement(task) {
     const deletebtn = document.createElement("button");
     deletebtn.textContent = "Delete";
     deletebtn.classList.add("deleteBtn");
+    const completebtn = document.createElement("button");
+    completebtn.textContent = "Complete";
+    completebtn.classList.add("completebtn");
+
+    if(task.completed){
+        completebtn.disabled = true;
+        completebtn.textContent = "Completed";
+    }
 
 
     // Toggle completed
@@ -98,10 +111,17 @@ function createTaskElement(task) {
 
     });
 
+    completebtn.addEventListener("click", function (){
+
+        task.completed = true;
+        savetasks();
+        rendertask();
+    })
+
 
     taskitem.appendChild(taskspan);
     taskitem.appendChild(deletebtn);
-
+    taskitem.appendChild(completebtn);
     tasklist.appendChild(taskitem);
 
 }
@@ -152,5 +172,33 @@ function rendertask() {
         createTaskElement(task);
 
     });
+
+    // calculate progress
+    let completed = tasks.filter(task => task.completed).length;
+    let total = tasks.length;
+
+    // display progress
+    progresstext.textContent = completed + " / " + total + " tasks completed";
+
+    // progress bar
+    if(total > 0){
+        let percentage = (completed/total) * 100;
+        progressfill.style.width = percentage + "%";
+    }
+    else if(total === 0){
+        progressfill.style.width = "0%";
+    }
+
+}
+
+function setActiveButton(button){
+
+    const buttons = document.querySelectorAll(".filters button");
+
+    buttons.forEach(btn => {
+        btn.classList.remove("active");
+    });
+
+    button.classList.add("active");
 
 }
