@@ -12,6 +12,8 @@ const Pendingtasks = document.getElementById("Pendingtasks");
 
 const progresstext = document.getElementById("progresstext")
 
+const emptymessage = document.getElementById("emptymessage")
+
 // Current filter state
 let currentfilter = "All";
 
@@ -187,6 +189,13 @@ function rendertask() {
     }
     else if(total === 0){
         progressfill.style.width = "0%";
+    }
+
+    if(total === 0 || total === completed){
+        emptymessage.textContent = "No tasks yet 🎉";
+    }
+    else{
+        emptymessage.textContent ="";
     }
 
 }
