@@ -1,4 +1,5 @@
 # 📝 To-Do List Web App
+## By Harman Singh and Meher Surati
 
 A simple and interactive **task management web application** built with **HTML, CSS, and JavaScript**.  
 Users can add tasks, mark them as completed, filter tasks, and track progress. Tasks are stored using **LocalStorage**, so they remain even after refreshing the page.
@@ -39,3 +40,13 @@ Example task object:
   completed: false
 }
 ---
+```
+## 📸Screenshot
+### Empty State
+![Empty State](screenshot/empty.png)
+
+### Tasks Added
+![Tasks Added](screenshot/with_tasks.png)
+
+### Completed Tasks
+![Completed Tasks](screenshot/progess_bar.png)
