@@ -121,10 +121,18 @@ function createTaskElement(task) {
     })
 
 
+    taskitem.classList.add("task-enter");
+
     taskitem.appendChild(taskspan);
     taskitem.appendChild(deletebtn);
     taskitem.appendChild(completebtn);
+
     tasklist.appendChild(taskitem);
+
+    /* trigger animation */
+    setTimeout(() => {
+        taskitem.classList.remove("task-enter");
+    }, 10);
 
 }
 

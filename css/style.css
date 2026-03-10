@@ -13,21 +13,23 @@ PAGE BACKGROUND
 ========================= */
 body{
     background: linear-gradient(135deg,#153677, #4E085F);
-    height:100vh;
+    min-height:100vh;
     display:flex;
     justify-content:center;
-    align-items:center;
+    align-items:flex-start;
+    padding-top: 200px;
+    overflow-y: auto;
 }
 
 /* =========================
 MAIN APP CONTAINER
 ========================= */
 .container{
-    background:white;
-    width:420px;
+    background:rgb(255, 255, 255);
+    width: 520px;
     padding:30px;
     border-radius:14px;
-    box-shadow:0 15px 35px rgba(0,0,0,0.15);
+    box-shadow:0 15px 35px rgba(0, 0, 0, 1);
     animation:fadeIn 0.6s ease;
 }
 
@@ -46,10 +48,8 @@ MAIN APP CONTAINER
 TITLE
 ========================= */
 h1{
-    text-align:center;
     margin-bottom:20px;
-    color:#333;
-    letter: spacing 10px;
+    color:#020202;
     font-weight: 600px;
 }
 
@@ -67,7 +67,7 @@ INPUT SECTION
     padding:12px;
     border:1px solid #ccc;
     border-radius:8px;
-    font-size:14px;
+    font-size:18px;
 }
 
 #taskinput:focus{
@@ -123,7 +123,7 @@ FILTER BUTTONS
     background:#4CAF50;
     color:white;
     font-weight:bold;
-    box-shadow:0 3px 8px rgba(0,0,0,0.15);
+    box-shadow:0 3px 8px rgba(0,0,0,0.2);
     transform: translateY(-3px);
 }
 
@@ -137,6 +137,9 @@ TASK LIST
 ========================= */
 #tasklist{
     list-style:none;
+    overflow-y: auto;
+    min-height: 1vh;
+    max-height: 20vh;
 }
 
 /* Each task */
@@ -153,9 +156,22 @@ TASK LIST
 }
 
 #tasklist li:hover{
-    transform: translateY(-3px);
-    box-shadow: 0 6px 12px rgba(0,0,0,0.08);
+    transform: translateY(-5px);
+    box-shadow: 0 6px 12px rgba(0,0,0,0.2);
 }
+
+/* task enter */
+.task-enter{
+    opacity:0;
+    transform: translateY(15px);
+}
+
+#tasklist li{
+    opacity:1;
+    transform: translateY(0);
+    transition: all 0.3s ease;
+}
+
 /* Completed task style */
 .completed{
     text-decoration:line-through;
