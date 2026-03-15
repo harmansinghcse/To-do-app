@@ -1,5 +1,5 @@
 # 📝 To-Do List Web App
-## By Harman Singh and Meher Surati
+## By Harman Singh and Mehar Surati
 
 A simple and interactive **task management web application** built with **HTML, CSS, and JavaScript**.  
 Users can add tasks, mark them as completed, filter tasks, and track progress. Tasks are stored using **LocalStorage**, so they remain even after refreshing the page.
